@@ -1,0 +1,11 @@
+@organizations.map do |organization|
+  {
+  id: organization.id,
+  name: organization.name,
+  industry: organization.industry,
+  description: organization.description,
+  email: organization.email,
+  phone: organization.phone,
+  zip: organization.zip,
+  }
+end

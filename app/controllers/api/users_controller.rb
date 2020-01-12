@@ -19,11 +19,12 @@ class Api::UsersController < ApplicationController
       password: params[:password],
       password_confirmation: params[:password_confirmation]
     )
-    if user.save
-      render json: { message: "User created successfully" }, status: :created
-    else
-      render json: { errors: user.errors.full_messages }, status: :bad_request
-    end
+    user.save
+    # if user.save
+    #   render json: { message: "User created successfully" }, status: :created
+    # else
+    #   render json: { errors: user.errors.full_messages }, status: :bad_request
+    # end
   end
 
   def update
@@ -32,18 +33,12 @@ class Api::UsersController < ApplicationController
     name: params[:name], 
     email: params[:email],
     phone: params[:phone],
-    high_school: params[:high_school]
+    high_school: params[:high_school],
     )
     if @user.save
       render 'show.json.jb'
     else
-      render json: {errors: @user.errors.full_message}, status: unprocessable_entity
+      render json: {errors: @user.errors.full_message}, status: :bad_request
     end
   end
-
-
-
-
-
-
 end
