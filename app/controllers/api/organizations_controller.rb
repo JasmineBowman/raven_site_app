@@ -1,4 +1,5 @@
 class Api::OrganizationsController < ApplicationController
+  # before_action :authenticate_user
 
   def index
     @organizations = Organization.all
@@ -8,17 +9,5 @@ class Api::OrganizationsController < ApplicationController
   def show
     @organization = Organization.find_by(id: params[:id])
     render 'show.json.jb'
-  end
-
-  def create
-    organization = Organization.new(
-      name: params[:name],
-      industry: params[:industry],
-      description: params[:description],
-      email: params[:email],
-      phone: params[:phone],
-      zip: params[:zip]
-    )
-    organization.save
   end
 end

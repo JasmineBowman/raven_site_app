@@ -19,26 +19,29 @@ class Api::UsersController < ApplicationController
       password: params[:password],
       password_confirmation: params[:password_confirmation]
     )
-    user.save
-    # if user.save
-    #   render json: { message: "User created successfully" }, status: :created
-    # else
-    #   render json: { errors: user.errors.full_messages }, status: :bad_request
-    # end
+    # user.save
+    if user.save
+      render json: { message: "User created successfully" }, status: :created
+    else
+      render json: { errors: user.errors.full_messages }, status: unprocessable_entity
+    end
   end
 
   def update
     @user = User.find_by(id: params[:id])
-    @user.update(
-    name: params[:name], 
-    email: params[:email],
-    phone: params[:phone],
-    high_school: params[:high_school],
-    )
-    if @user.save
-      render 'show.json.jb'
-    else
-      render json: {errors: @user.errors.full_message}, status: :bad_request
-    end
+    @user.name = params[:name]
+    @user.email = params[:email]
+    @user.phone = params[:phone]
+    @user.high_school = params[:high_school]
+    @user.id = params[:user_id]
+    @user.save
+
+    redirect_to "/users/#{@user.id}"
+    
+    # if @user.save
+    #   render 'show.json.jb'
+    # else
+    #   render json: {errors: @user.errors.full_message}, status: unprocessable_entity
+    # end
   end
 end

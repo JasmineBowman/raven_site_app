@@ -8,12 +8,10 @@ Rails.application.routes.draw do
     get "/users" => "users#index"
     get "/users/:id" => "users#show"
     post "/users" => "users#create"
-    patch "/users" => "users#update"
+    patch "/users/:id" => "users#update"
 
     get "/organizations" => "organizations#index"
     get "/organizations/:id" => "organizations#show"
-    post "/organizations" => "organizations#create"
-    patch "/organizations" => "organizations#update"
 
     post "/sessions" => "sessions#create"
   end

@@ -1,6 +1,6 @@
 @organizations.map do |organization|
   {
-  id: organization.id,
+  id: organization.id, 
   name: organization.name,
   industry: organization.industry,
   description: organization.description,
