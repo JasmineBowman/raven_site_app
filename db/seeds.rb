@@ -15,9 +15,9 @@ require 'faker'
   user.save!
 end
 
-# require 'faker'
-# 10.times do
-#   organization = Organization.new(name: Faker::Company.name, industry: Faker::Company.industry, description: Faker::Company.bs, email: Faker::Internet.email, phone: Faker::PhoneNumber.cell_phone, zip: Faker::Address.zip)
+require 'faker'
+10.times do
+  organization = Organization.new(name: Faker::Company.name, industry: Faker::Company.industry, description: Faker::Company.bs, email: Faker::Internet.email, phone: Faker::PhoneNumber.cell_phone, zip: Faker::Address.zip)
 
-#   organization.save
-# end
+  organization.save
+end

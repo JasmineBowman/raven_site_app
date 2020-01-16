@@ -7,5 +7,6 @@
   email: organization.email,
   phone: organization.phone,
   zip: organization.zip,
+  image_url: organization.image_url
   }
 end
