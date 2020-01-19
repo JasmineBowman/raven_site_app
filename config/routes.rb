@@ -14,5 +14,7 @@ Rails.application.routes.draw do
     get "/organizations/:id" => "organizations#show"
 
     post "/sessions" => "sessions#create"
+
+    get "/forms/new" => "forms#new"
   end
 end
