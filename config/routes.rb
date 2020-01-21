@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
     post "/sessions" => "sessions#create"
 
+    post "/applications" => "applications#create"
+
     get "/agreementforms/new" => "agreementforms#new"
     get "/experienceforms/new" => "experienceforms#new"
     get "/feedbackforms/new" => "feedbackforms#new"
